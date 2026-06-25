@@ -34,3 +34,5 @@ The design follows best practices in database normalization and sub-typing (IS-A
    CREATE DATABASE Clinic_DB;
    USE Clinic_DB;
 3. Copy the SQL script provided in the .sql file of this repository and execute it.   
+
+## Author Jafr Jaber - Github Account(github.com/jafr543)
