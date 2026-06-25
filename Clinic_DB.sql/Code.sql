@@ -1,3 +1,4 @@
+create Database Clinic_DB;
 
 create table contact_informations(
 ID int Primary key,
