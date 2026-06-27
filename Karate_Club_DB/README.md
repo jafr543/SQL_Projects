@@ -36,7 +36,8 @@ The database consists of the following key tables and relationships:
 
 ---
 
-## ?Create the Database:eate the Database:** Execute your database creation script to initialize Karate_Club_DB.
+### 1. Create the Database
+Execute your database creation script to initialize Karate_Club_DB.
 2. **Seed Lookup Data:** Ensure you populate the BeltRanks table first with the standard 17 ranks and their respective fees, as it acts as a critical lookup for both Members and BeltTests.
 3. **Establish Constraints:** Ensure all Foreign Keys and Composite Primary Keys are built exactly as mapped to guarantee data consistency across operations.
 
