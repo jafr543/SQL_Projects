@@ -28,7 +28,7 @@ The database consists of the following key tables and relationships:
 ### 2. Operations &Payments**Payments**: A central ledger tracking all financial transactions (Amount, Date) tied directly to a MemberID.
 * **SubscriptionPeriods**: Manages the duration and fees of training cycles. It references Payments (nullable) to accommodate pending balances.
 
-### 3. Progression & TBeltRanks
+### 3. ProgressioBeltRanks
 * **BeltRanks**: A lookup table containing the 17 standard Karate belt levels (from White Belt up to 10th Dan Black Belt) along with their fixed standard TestFees.
 * **BeltTests**: A historical log tracking every belt exam. It links the member, the target rank, the evaluating instructor, the result (Pass/Fail), and the associated payment.
 
@@ -36,15 +36,12 @@ The database consists of the following key tables and relationships:
 
 ---
 
-### 1. Create the Database
-Execute your database creation script to initialize Karate_Club_DB.
+## Create the Database:eate the Database:** Execute your database creation script to initialize Karate_Club_DB.
 2. **Seed Lookup Data:** Ensure you populate the BeltRanks table first with the standard 17 ranks and their respective fees, as it acts as a critical lookup for both Members and BeltTests.
 3. **Establish Constraints:** Ensure all Foreign Keys and Composite Primary Keys are built exactly as mapped to guarantee data consistency across operations.
 
 ---
+💡 *Designed with focus on relational database design principles, strict data integrity constraints, aAuthor:normalization.*
 
-💡 *Designed with focus on relational database design principles, strict data integrity constraints, and optimal normalization.*
-
----
-
-## Author - Jafr Jaber __ Githup(github.com/jafr543)
+*GitHub:Jafar Jaber  
+🔗 **GitHub:** [github.com/jafr543](https://github.com/jafr543)
