@@ -35,30 +35,52 @@ Category int foreign key references Vehicle_Categorys(CategoryID),
 IsAvailable bit not null default 1)
 
 
+create table Maintenance(
+MaintenanceID int primary key identity(1,1),
+VehicleID int foreign key references Vehicles(VehicleID),
+Description nvarchar(300) not null,
+MaintenanceDate date not null,
+Cost decimal(18,2) not null)
+
+
 create table Vehicle_Booking(
 BookingID int primary key identity(1,1),
 CustomerID int foreign key references Customers(CustomerID),
 VehicleID int foreign key references Vehicles(VehicleID),
-Start_Date datetime not null,
-End_Date datetime not null,
+RentalStartDate date not null,
+RentalEndDate date not null,
 Pickup_location nvarchar(100) not null,
 Drop_location nvarchar(100) not null,
-Due_amount money not null,
-Notes nvarchar(max) null)
+InitialRentalDays tinyint not null,
+RentalPricePerDay smallmoney not null,
+InitialTotalDueAmount smallmoney not null,
+InitialCheckNotes nvarchar(max) null)
 
-create table Rental_Payments(
-PaymentID int primary key identity(1,1),
-BookingID int foreign key references Vehicle_Booking(BookingID),
-PaymentDetails nvarchar(100) not null,
-Paid_amount money not null)
 
 create table Vehicle_Returns(
 ReturnID int primary key identity(1,1),
 BookingID int foreign key references Vehicle_Booking(BookingID),
-Actual_Rental_Days smallint not null,
 Actual_Return_Date datetime not null,
+Actual_Rental_Days tinyint not null,
+Mileage int not null,
+ConsumedMilaeage smallint not null,
 Check_Notes nvarchar(max) null,
-Additional_Charges money null default 0)
+Additional_Charges smallmoney null default 0,
+ActualTotalDueAmount smallmoney not null)
+
+
+create table Rental_Payments(
+TransactionID int primary key identity(1,1),
+BookingID int foreign key references Vehicle_Booking(BookingID),
+ReturnID int foreign key references Vehicle_Returns(ReturnID),
+PaymentDetails nvarchar(100) not null,
+PaidInitialTotalDueAmount smallmoney not null,
+ActualTotalDueAmount smallmoney null,
+TotalRemaining smallmoney null,
+TotalRefundedAmount smallmoney null,
+TransactionDate datetime not null,
+UpdatedTransactionDate datetime null)
+
 
 create table Settings(
 OneDay_late_Charges smallmoney not null,
