@@ -1,4 +1,3 @@
-`mermaid
 erDiagram
     People {
         int PersonID PK
@@ -12,31 +11,31 @@ erDiagram
         string ProfilePicture
     }
 
-    Users {
+Users {
         int UserID PK
         int PersonID FK "Unique"
         string UserName "Unique"
         string Password
     }
 
-    Application_Types {
+Application_Types {
         int ApplicationTypeID PK
         string ApplicationTypeName "Unique"
     }
 
-    Application {
+Application {
         int ApplicationID PK
         int ApplicationTypeID FK
         int ApplicationPersonID FK
         int CreatedByUserID FK
     }
 
-    Test_Types {
+Test_Types {
         int TestTypeID PK
         string TestName "Unique"
     }
 
-    TestAppointments {
+ TestAppointments {
         int TestAppointmentID PK
         int UserID FK
         int ApplicationID FK
@@ -46,12 +45,12 @@ erDiagram
         bit PaidFees
     }
 
-    Drivers {
+ Drivers {
         int DriverID PK
         int PersonID FK "Unique"
     }
 
-    Licenses_Categories {
+Licenses_Categories {
         int LicenseClassID PK
         string ClassName "Unique"
         string ClassDescription
@@ -60,7 +59,7 @@ erDiagram
         smallmoney ClassFees
     }
 
-    Licenses {
+ Licenses {
         int LicenseID PK
         string LicenseNumber "Unique"
         int DriverID FK
@@ -71,7 +70,7 @@ erDiagram
         string LicenseIssuanceStatus
     }
 
-    Detained_Licenses {
+Detained_Licenses {
         int DetainedID PK
         int LicenseID FK
         string ReasonforDetained
@@ -81,7 +80,7 @@ erDiagram
         bit IsDetained
     }
 
-    People ||--o| Users : "has account"
+People ||--o| Users : "has account"
     People ||--o| Drivers : "becomes"
     People ||--o{ Application : "applies"
     Users ||--o{ Application : "creates"
@@ -94,7 +93,8 @@ erDiagram
     Licenses ||--o{ Detained_Licenses : "gets"
     Users ||--o{ Detained_Licenses : "releases"
 
-    # 🚗 Driving & Vehicle Licensing Department (DVLD) Database System
+   
+# 🚗 Driving & Vehicle Licensing Department (DVLD) Database System
 
 A robust, highly optimized, and normalized relational database schema designed to streamline municipal and government operations for issuing, renewing, testing, and managing driving licenses.
 
