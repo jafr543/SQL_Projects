@@ -166,3 +166,5 @@ Below is a high-level representation of how the primary tables interact within t
    -- Run the script in your query editor
    CREATE DATABASE DVLD_DB;
    -- Followed by the table creation scripts...
+
+## Author Jafr Jaber -- Github(github.com/jafr543)
