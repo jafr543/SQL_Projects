@@ -1,3 +1,4 @@
+```mermaid
 erDiagram
     People {
         int PersonID PK
@@ -92,7 +93,7 @@ People ||--o| Users : "has account"
     Licenses_Categories ||--o{ Licenses : "determines class of"
     Licenses ||--o{ Detained_Licenses : "gets"
     Users ||--o{ Detained_Licenses : "releases"
-
+```
    
 # 🚗 Driving & Vehicle Licensing Department (DVLD) Database System
 
