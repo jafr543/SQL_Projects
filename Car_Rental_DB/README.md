@@ -1,4 +1,4 @@
-'''mermaid
+```mermaid
 
 erDiagram
     Customers ||--o{ Vehicle_Booking : "makes"
@@ -91,7 +91,7 @@ erDiagram
         smallmoney OneDay_late_Charges
         smallmoney Damage_Charges
     }
-'''
+```
 
 # 🚗 Car Rental Database System (Car_Rental_DB)
 
