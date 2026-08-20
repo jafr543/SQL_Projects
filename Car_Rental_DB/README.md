@@ -1,3 +1,96 @@
+erDiagram
+    Customers ||--o{ Vehicle_Booking : "makes"
+    Fuel_types ||--o{ Vehicles : "has"
+    Vehicle_Categorys ||--o{ Vehicles : "belongs to"
+    Vehicles ||--o{ Maintenance : "undergoes"
+    Vehicles ||--o{ Vehicle_Booking : "reserved in"
+    Vehicle_Booking ||--o| Vehicle_Returns : "results in"
+    Vehicle_Booking ||--o{ Rental_Payments : "has"
+    Vehicle_Returns ||--o{ Rental_Payments : "settles"
+
+    Customers {
+        int CustomerID PK
+        nvarchar Name
+        nvarchar Contact_Information
+        nvarchar DL_Number
+    }
+
+    Fuel_types {
+        int FuelID PK
+        nvarchar FuelName
+    }
+
+    Vehicle_Categorys {
+        int CategoryID PK
+        nvarchar CategoryName
+    }
+
+    Vehicles {
+        int VehicleID PK
+        nvarchar Make
+        nvarchar Model
+        smallint Year
+        int Mileage
+        money Rrental_Rates
+        int Fuel FK
+        nvarchar Plate_Number
+        int Category FK
+        bit IsAvailable
+    }
+
+    Maintenance {
+        int MaintenanceID PK
+        int VehicleID FK
+        nvarchar Description
+        date MaintenanceDate
+        decimal Cost
+    }
+
+    Vehicle_Booking {
+        int BookingID PK
+        int CustomerID FK
+        int VehicleID FK
+        date RentalStartDate
+        date RentalEndDate
+        nvarchar Pickup_location
+        nvarchar Drop_location
+        tinyint InitialRentalDays
+        smallmoney RentalPricePerDay
+        smallmoney InitialTotalDueAmount
+        nvarchar InitialCheckNotes
+    }
+
+    Vehicle_Returns {
+        int ReturnID PK
+        int BookingID FK
+        datetime Actual_Return_Date
+        tinyint Actual_Rental_Days
+        int Mileage
+        smallint ConsumedMilaeage
+        nvarchar Check_Notes
+        smallmoney Additional_Charges
+        smallmoney ActualTotalDueAmount
+    }
+
+    Rental_Payments {
+        int TransactionID PK
+        int BookingID FK
+        int ReturnID FK
+        nvarchar PaymentDetails
+        smallmoney PaidInitialTotalDueAmount
+        smallmoney ActualTotalDueAmount
+        smallmoney TotalRemaining
+        smallmoney TotalRefundedAmount
+        datetime TransactionDate
+        datetime UpdatedTransactionDate
+    }
+
+    Settings {
+        smallmoney OneDay_late_Charges
+        smallmoney Damage_Charges
+    }
+
+
 # 🚗 Car Rental Database System (Car_Rental_DB)
 
 A robust, relational database design for a Car Rental Management System. This schema is optimized to handle customers, vehicle fleets, bookings, payments, and returns efficiently, ensuring data integrity through proper normalization and constraint management.
