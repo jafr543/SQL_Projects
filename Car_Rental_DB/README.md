@@ -1,3 +1,5 @@
+'''mermaid
+
 erDiagram
     Customers ||--o{ Vehicle_Booking : "makes"
     Fuel_types ||--o{ Vehicles : "has"
@@ -89,7 +91,7 @@ erDiagram
         smallmoney OneDay_late_Charges
         smallmoney Damage_Charges
     }
-
+'''
 
 # 🚗 Car Rental Database System (Car_Rental_DB)
 
